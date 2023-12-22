@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4cc24f3f57cc7e3f85159288760bc784ef3499b2fcfc4ee13f63d2c33c12a3ef
-size 323
+[tool.poetry]
+name = "rugpt3-amber"
+version = "0.1.0"
+description = ""
+authors = ["Sergo-M <mr.sermoz@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+transformers = {extras = ["torch"], version = "^4.36.2"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
