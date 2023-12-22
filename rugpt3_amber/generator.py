@@ -1,4 +1,5 @@
 import torch
+from RuGpt3_Amber.rugpt3_amber.data.pathes import MODEL_PATH
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 
@@ -40,9 +41,8 @@ class TextGenerator:
 
 def main() -> None:
     device = 'cuda' if torch.cuda.is_available() else ('mps' if torch.backends.mps.is_available() else 'cpu')
-    tuned_model = 'data/tuned_model'
-    model = GPT2LMHeadModel.from_pretrained(tuned_model)
-    tokenizer = GPT2Tokenizer.from_pretrained(tuned_model)
+    model = GPT2LMHeadModel.from_pretrained(MODEL_PATH)
+    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH)
     generator = TextGenerator(model=model, tokenizer=tokenizer, device=device)
     generator.input(input('Введите слово: '))
     print(generator.generate())
