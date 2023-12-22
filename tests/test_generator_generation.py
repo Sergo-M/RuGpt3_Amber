@@ -1,6 +1,6 @@
 import unittest
-from RuGpt3_Amber.rugpt3_amber.data.pathes import MODEL_PATH
-from RuGpt3_Amber.rugpt3_amber.generator import TextGenerator
+from rugpt3_amber.data.pathes import MODEL_PATH
+from rugpt3_amber.generator import TextGenerator
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 class TestTextGenerator(unittest.TestCase):

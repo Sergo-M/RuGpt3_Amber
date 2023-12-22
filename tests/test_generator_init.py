@@ -1,6 +1,6 @@
 import unittest
-from RuGpt3_Amber.rugpt3_amber.data.pathes import MODEL_PATH
-from RuGpt3_Amber.rugpt3_amber.generator import TextGenerator
+from rugpt3_amber.data.pathes import MODEL_PATH
+from rugpt3_amber.generator import TextGenerator
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 class TestTextGenerator(unittest.TestCase):
@@ -21,6 +21,5 @@ class TestTextGenerator(unittest.TestCase):
         self.assertEqual(self.generator.max_length, 75)
         self.assertEqual(self.generator.model.training, False)
 
-
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()

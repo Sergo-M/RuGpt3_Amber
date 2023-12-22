@@ -1,5 +1,5 @@
 import torch
-from RuGpt3_Amber.rugpt3_amber.data.pathes import MODEL_PATH
+from rugpt3_amber.data.pathes import MODEL_PATH
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 
