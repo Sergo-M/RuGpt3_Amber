@@ -1,12 +1,11 @@
 import unittest
-from rugpt3_amber.data.pathes import MODEL_PATH
 from rugpt3_amber.generator import TextGenerator
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 class TestTextGenerator(unittest.TestCase):
     def setUp(self):
-        self.model = GPT2LMHeadModel.from_pretrained(MODEL_PATH)
-        self.tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH)
+        self.model = GPT2LMHeadModel.from_pretrained('sberbank-ai/rugpt3small_based_on_gpt2')
+        self.tokenizer = GPT2Tokenizer.from_pretrained('sberbank-ai/rugpt3small_based_on_gpt2')
         self.device = 'cpu'
         self.generator = TextGenerator(self.model, self.tokenizer, self.device)
 
