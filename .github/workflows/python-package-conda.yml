@@ -7,29 +7,9 @@ on:
     branches: [ main ]
 
 jobs:
-  prepare_enviroment:
-    name: Preparing enviroment
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: Installing modules
-      run: |
-        export PYTHONPATH=$(pwd):$PYTHONPATH
-        python -m pip install --upgrade pip
-        python -m venv .venv
-        source .venv/bin/activate
-        pip install poetry
-        poetry update
-    
   code-style:
     name: Code Style
     runs-on: ubuntu-latest
-    needs: [ prepare_enviroment ]
 
     steps:
     - uses: actions/checkout@v3
@@ -44,7 +24,6 @@ jobs:
   run-core-tests:
     name: Run core tests
     runs-on: ubuntu-latest
-    needs: [ prepare_enviroment ]
 
     steps:
     - uses: actions/checkout@v3
@@ -54,4 +33,10 @@ jobs:
         python-version: '3.10'
     - name: Setup & run tests
       run: |
+        export PYTHONPATH=$(pwd):$PYTHONPATH
+        python -m pip install --upgrade pip
+        python -m venv .venv
+        source .venv/bin/activate
+        pip install poetry
+        poetry update
         python -m pytest tests
